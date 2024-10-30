@@ -2,31 +2,90 @@
 title: "Dashboard"
 output: 
   flexdashboard::flex_dashboard:
-    orientation: columns
-    vertical_layout: fill
+    vertical_layout: scroll
 ---
 
 ```{r setup, include=FALSE}
 library(flexdashboard)
+library(tidyverse)
+library(p8105.datasets)
+library(plotly)
+```
+
+```{r import}
+data("instacart")
+
+instacart_df = 
+  instacart %>% 
+  select(order_id, product_id, user_id, reordered, order_dow, order_hour_of_day, aisle, department) %>%
+  filter(aisle != "missing", department != "missing") %>% 
+  mutate(
+    order_dow = factor(order_dow, levels = c(0, 1, 2, 3, 4, 5, 6),
+                       labels = c("Sunday", "Monday", "Tuesday", 
+                                  "Wednesday","Thursday", "Friday","Saturday"))
+    )%>% 
+  sample_frac(0.3)
 ```
 
 
-Column {data-width=650}
------------------------------------------------------------------------
+### Box plot
 
-### Chart A
+```{r box_plot}
+instacart_df %>% 
+  plot_ly(y = ~order_hour_of_day, 
+          color = ~department, 
+          type = "box", 
+          colors = "viridis") %>% 
+  layout(title = "Distribution of order time in all department", 
+         xaxis = list(title = "Department"), 
+         yaxis = list(title = "Hour of day ordered"),
+         legend = list(title = list(text = "<b>Department</b>"))) 
+```
 
 
 
-Column {data-width=350}
------------------------------------------------------------------------
+### Bar plot
 
-### Chart B
+```{r bar_plot}
+instacart_df %>% 
+  mutate(department = factor(department, 
+                      levels = sort(unique(department)), 
+                      ordered = TRUE)) %>% 
+  group_by(department, order_dow) %>% 
+  count(order_dow) %>%
+  plot_ly(x = ~order_dow, 
+          y = ~n, 
+          color = ~department, 
+          name = ~department,
+          type = "bar",
+          colors = "viridis")%>% 
+  layout(title = "Number of purchases in all department", 
+         xaxis = list(title = "Day of the week"), 
+         yaxis = list(title = "Number of purchases"),
+         legend = list(title = list(text = "<b>Department</b>")),
+         barmode = "stack") 
+```
 
 
+### Line plot
 
-### Chart C
-
+```{r line_plot}
+instacart_df %>%
+  filter(department == "produce", reordered == 1) %>% 
+  group_by(order_dow, aisle) %>% 
+  count() %>% 
+  ungroup() %>% 
+  plot_ly(x = ~order_dow, 
+          y = ~n, 
+          color = ~aisle, 
+          type = "scatter",
+          mode = "lines+markers",
+          colors = "viridis") %>% 
+  layout(title = "Number of purchases in produce department", 
+         xaxis = list(title = "Day of the week"), 
+         yaxis = list(title = "Number of purchases"),
+         legend = list(title = list(text = "<b>Aisle</b>"))) 
+```
 
 
 
