@@ -1,0 +1,21 @@
+---
+title: "Jinghan Zhao"
+output: 
+  html_document
+---
+
+**Welcome to my first website!**
+
+I am currently working on my M.S. in Biostatistics at the Columbia University Mailman School of Public Health. I am passionate about data analysis.
+
+<img src="index-pic.jpg" style="width:30%">
+
+This is a website for P8105.
+
+More information:
+
+* [Columbia University Mailman School of Public Health](https://www.publichealth.columbia.edu/)
+
+* [My resume](resume.html)
+
+* [Dashboard for HW4](dashboard.html)

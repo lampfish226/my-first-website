@@ -1,0 +1,72 @@
+---
+title: "Resume"
+output: 
+  html_document:
+    toc: true
+    toc_float: true
+---
+
+<br>
+
+
+
+## Education
+
+**Columbia University Mailman School of Public Health**
+
+New York, USA | August 2024 - May 2026
+
+Master of Science: Biostatistics, concentration in Theory and Methods
+
+**Huazhong University of Science and Technology** 
+
+Wuhan, China | August 2019 - June 2023
+
+Bachelor of Science: Bioscience
+
+<br>
+
+
+
+## Skills
+
+**Programming languages:** R, C++, Python, SPSS
+
+**Operating systems:** Windows, Linux
+
+**Multimedia design:** Photoshop, Indesign, Audition, Premiere, After Effects
+
+<br>
+
+
+
+## Research experience
+
+**Method for Detecting Subliminal Parkinsonian Deficits based on Automatically-analyzed Speech Features Data**
+
+February 2023 - May 2023
+
+* Organized and analyzed a quantified acoustic data set including 12 acoustic features, completed exploratory data analysis using R, displayed the distribution of each variable through box plot, and explored the relationship between variables through correlation test
+* Used centering and scaling to preprocess and transform the data, applied 10-fold cross-validation and established a logistic regression model and K-nearest neighbor's algorithm model
+* Used accuracy, Cohen's kappa, and McNamara's test p-value to evaluate the accuracy of the model
+* Identified and analyzed specific patterns of speech abnormalities in patients
+
+
+
+**Molecular dynamics study of the interaction between neuraminidase mutants and inhibitors**
+
+November 2022 - June 2023
+
+* Performed molecular dynamics simulation through OpenMM to obtain the conformation of the inhibitor OTV and ZMR binding to N1 neuraminidase H274Y
+* Applied structural feature analysis through Bio3D, which showed that the H274Y mutation led to the rearrangement of adjacent residues and the interaction between residues and OTV inside the active site
+* Applied binding free energy analysis using MM-PBSA, which indicated that OTV possessed a stronger non-polar interaction by comparison with ZMR, but a weaker polar interaction resulted in a decrease of the total binding free energy, which ultimately developed OTV resistance
+
+
+**Research on the correlation between human palm prints and fingerprints and circadian rhythm**
+
+November 2021 - December 2021
+
+* Reviewed the literature related to circadian rhythm to determine appropriate quantitative indicators
+* Collected data using the MEQ-5 (morning-evening questionnaire) as a campus questionnaire
+* Applied the independence test to analyze the correlation between the left and right palm print types, the fingerprint types of each finger of the left and right hands, and the circadian rhythm type respectively
+* Assigned scores for fingerprint types and performed an independent sample T-test using SPSS
